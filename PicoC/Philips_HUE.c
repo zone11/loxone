@@ -2,7 +2,8 @@
 // (c) 2013 by Romy Glauser
 // (c) 2015 Erweiterung durch Andreas Lackner-Werner um LUMITECH (rgbw) & Gruppenfunktionen sowei generelles Cleanup des Codes
 // (c) 2015 Erweiterung durch Sven Thierfelder um cx/cy Farbsteuerung für hue-bulbs sowie Glühlampensimulation
-// (c) 2018 RvESoft Solutions for Hue Brige 1.23 version
+// (c) 2018 Changes by RvESoft Solutions for Hue Brige 1.23 version
+// (c) 2018 Changes by Christian Egger for better network timing
 
 int DEBUG_LEVEL=0;
 int DIMMER_MIN=15;  
@@ -475,7 +476,6 @@ void sendCommand(char* selector, char* command, char* selectorgroup) {
 			}
 		 } 
 		while (nCnt > 0);
-			 
 			if (nBytesReceived > 0)
 			{
 				sprintf(grouplogr,"/log/hue_%s_r.log", selectorgroup);
@@ -510,6 +510,6 @@ while (1==1)
 			}
 		}
 	}
-	// Slow doen the program
+	// Slow down the program
     sleep(100);
 }
